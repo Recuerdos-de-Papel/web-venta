@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuerdos de Papel | Papelería Creativa y Personalizada</title> <!-- Título de la web actualizado -->
+    <meta name="description" content="Papelería creativa, productos personalizados para eventos, regalos y más. ¡Diseños únicos para tus ideas!"> <!-- Descripción actualizada -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon para tu sitio web -->
+    <link rel="icon" type="image/png" href="assets/favicon.png"> 
+
+    <style>
+        /* Estilos generales para el cuerpo y contenedores */
+        body {
+            font-family: var(--body-font);
+            color: var(--light-color);
+            background-color: var(--dark-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Evitar scroll horizontal */
+            scroll-behavior: smooth; /* Desplazamiento suave para anclas */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Variable para deshabilitar el scroll del cuerpo */
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        /* Contenedor principal para centrar el contenido */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header --- */
+        .header {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+        }
+
+        .header.sticky {
+            background-color: var(--darker-color);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 40px; /* Ajusta el tamaño del logo si es una imagen */
+            width: auto;
+        }
+
+        .logo:hover {
+            color: var(--primary-color); /* Cambia el color al hacer hover */
+        }
+
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-list a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color var(--transition-speed);
+        }
+
+        .nav-list a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-list a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color); /* Color de subrayado secundario */
+            transition: width var(--transition-speed);
+        }
+
+        .nav-list a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .menu-toggle {
+            display: none; /* Oculto por defecto en desktop */
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px;
+            transition: color var(--transition-speed);
+        }
+
+        .menu-toggle:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Mobile Menu --- */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%; /* Oculto por defecto */
+            width: 70%; /* Ancho del menú móvil */
+            max-width: 300px;
+            height: 100%;
+            background-color: var(--darker-color);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+            transition: right var(--transition-speed);
+            z-index: 1100; /* Por encima del header */
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .mobile-menu.open {
+            right: 0; /* Muestra el menú */
+        }
+
+        .close-menu-btn {
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 2rem;
+            cursor: pointer;
+            align-self: flex-end; /* Alinea el botón a la derecha */
+            margin-bottom: 20px;
+            transition: color var(--transition-speed);
+        }
+
+        .close-menu-btn:hover {
+            color: var(--secondary-color);
+        }
+
+        .mobile-nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-nav-list a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 0;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: color var(--transition-speed);
+        }
+
+        .mobile-nav-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 100vh; /* Ajusta la altura de la sección hero */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centra el contenido horizontalmente */
+            text-align: center; /* Centra el texto dentro del hero */
+            color: var(--light-color);
+            background-size: cover;
+            background-position: center;
+            padding-top: var(--header-height); /* Espacio para el header fijo */
+            overflow: hidden; /* Asegura que el contenido no se desborde */
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(var(--dark-color-rgb), 0.7); /* Capa semitransparente más oscura */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 30px;
+            animation: fadeInScale 1.5s ease-out forwards; /* Animación de entrada con escala */
+            background-color: rgba(var(--darker-color-rgb), 0.2); /* Fondo sutil para el contenido */
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px); /* Efecto de desenfoque */
+            margin: 0 auto; /* Centra el bloque hero-content dentro de su contenedor flex */
+            text-align: center; /* Asegura que el texto dentro de hero-content esté centrado */
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .hero h1 {
+            font-family: var(--heading-font);
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            color: var(--secondary-color); /* Color de título para el hero */
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: var(--light-color);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center; /* Esto ya centra los botones */
+            gap: 25px;
+        }
+
+        /* --- Botones Generales --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all var(--transition-speed);
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            text-align: center;
+            position: relative; /* Para efectos de hover */
+            overflow: hidden; /* Para efectos de brillo */
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--dark-color); /* Texto oscuro para contraste en primary */
+            box-shadow: 0 4px 10px rgba(var(--primary-color-rgb), 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 15px rgba(var(--secondary-color-rgb), 0.4);
+            color: var(--light-color); /* Cambia el color del texto al hover */
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color); /* Texto oscuro para contraste en secondary hover */
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 15px rgba(var(--secondary-color-rgb), 0.4);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(var(--whatsapp-color-rgb), 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20b85a; /* Tono más oscuro de verde */
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 15px rgba(var(--whatsapp-color-rgb), 0.4);
+        }
+
+        /* Efecto de brillo en botones al hover */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            transform: skewX(-20deg);
+            transition: all var(--transition-speed);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* --- Secciones Generales --- */
+        .section {
+            padding: 100px 0; /* Más padding para más espacio */
+            text-align: center;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+        }
+
+        .section:nth-of-type(even) { /* Fondo ligeramente diferente para secciones pares */
+            background-color: var(--darker-color);
+        }
+
+        .section-title {
+            font-family: var(--heading-font);
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 90px; /* Un poco más ancho */
+            height: 5px; /* Un poco más grueso */
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto 60px; /* Más margen inferior */
+        }
+
+        /* --- About Section --- */
+        #about {
+            background-color: var(--darker-color);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 0 20px;
+            line-height: 1.8;
+        }
+
+        .about-content h3 {
+            font-family: var(--heading-font);
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        /* --- Featured Promotions Section (Nuestras Promociones Destacadas) --- */
+        #offers {
+            background-color: var(--dark-color); /* Fondo para la sección de promociones */
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado para más flexibilidad */
+            gap: 30px; /* Espacio entre tarjetas */
+            padding: 0 20px;
+        }
+
+        .photo-card {
+            background-color: var(--input-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(var(--light-color-rgb), 0.1); /* Borde sutil */
+        }
+
+        .photo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .photo-card.selected {
+            border: 3px solid var(--whatsapp-color); /* Borde verde para seleccionadas */
+            box-shadow: 0 0 0 5px rgba(var(--whatsapp-color-rgb), 0.5), var(--box-shadow);
+        }
+
+        .photo-card img, .photo-card video {
+            width: 100%;
+            height: 220px; /* Altura fija para las miniaturas */
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease; /* Transición para zoom en hover */
+        }
+
+        .photo-card:hover img, .photo-card:hover video {
+            transform: scale(1.05); /* Zoom sutil en la imagen */
+        }
+
+        .photo-card .video-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 5px;
+            z-index: 10; /* Asegura que esté sobre la imagen */
+        }
+
+        /* Estilo para el contenedor de iconos de archivo (PDF/PPT) */
+        .photo-card .file-icon-container {
+            width: 100%;
+            height: 220px; /* Misma altura que las imágenes */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--darker-color); /* Fondo oscuro para los iconos */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .photo-card .file-icon-container i {
+            font-size: 80px; /* Tamaño grande para el icono */
+            margin-bottom: 15px;
+        }
+        .photo-card .file-icon-container p {
+            color: var(--light-color);
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+
+        .photo-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(var(--darker-color-rgb), 0.9), transparent); /* Gradiente más oscuro */
+            color: var(--light-color);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            min-height: 90px; /* Altura mínima para el overlay */
+            box-sizing: border-box;
+            z-index: 5; /* Asegura que esté sobre la imagen pero debajo del icono de video */
+        }
+
+        .photo-card-overlay .photo-title {
+            font-family: var(--heading-font);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .photo-card-overlay .select-button {
+            background-color: var(--primary-color);
+            color: var(--dark-color); /* Texto oscuro para contraste */
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .photo-card-overlay .select-button:hover:not(:disabled) {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            color: var(--light-color);
+        }
+
+        .photo-card-overlay .select-button:disabled {
+            background-color: #6c757d; /* Gris para deshabilitado */
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+        /* --- Products Section (Tienda de Productos) --- */
+        #products {
+            background-color: var(--dark-color); /* Fondo para la sección de productos */
+        }
+
+        .products .photo-grid { /* Reutiliza la clase photo-grid para la cuadrícula de productos */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--input-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(var(--light-color-rgb), 0.1); /* Borde sutil */
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .product-card.selected {
+            border: 3px solid var(--whatsapp-color); /* Borde verde para seleccionados */
+            box-shadow: 0 0 0 5px rgba(var(--whatsapp-color-rgb), 0.5), var(--box-shadow);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px; /* Altura fija para las miniaturas de productos */
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-info h3 {
+            font-family: var(--heading-font);
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+        }
+
+        .product-info .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .product-info .add-to-cart-btn {
+            background-color: var(--primary-color);
+            color: var(--dark-color); /* Texto oscuro para contraste */
+            border: none;
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .product-info .add-to-cart-btn:hover:not(:disabled) {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            color: var(--light-color);
+        }
+
+        .product-info .add-to-cart-btn:disabled {
+            background-color: #6c757d; /* Gris para deshabilitado */
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+        .note-delivery {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            margin-top: 40px;
+            background-color: rgba(var(--secondary-color-rgb), 0.1);
+            border: 1px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            padding: 15px 20px;
+            display: inline-block;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+
+        /* --- Services Section --- */
+        #services {
+            background-color: var(--darker-color);
+        }
+
+        .hiring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1r));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .plan-card { /* Renombrado de service-card a plan-card para reflejar los "planes" */
+            background-color: var(--input-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 2px solid transparent; /* Borde inicial transparente */
+        }
+
+        .plan-card.highlight { /* Estilo para destacar un plan */
+            border-color: var(--secondary-color);
+            box-shadow: 0 8px 20px rgba(var(--secondary-color-rgb), 0.4);
+            transform: scale(1.03); /* Ligeramente más grande */
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px); /* Más pronunciado */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .plan-header {
+            margin-bottom: 25px;
+        }
+
+        .plan-header .icon {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .plan-card h3 {
+            font-family: var(--heading-font);
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            text-align: left;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .plan-features li {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .plan-features li i.fa-check-circle {
+            color: var(--whatsapp-color); /* Verde para checks */
+        }
+
+        .plan-features li i.fa-times-circle {
+            color: var(--accent-color); /* Rojo para cruces */
+        }
+
+        .plan-footer {
+            margin-top: auto; /* Empuja el footer hacia abajo */
+            width: 100%;
+        }
+
+        .plan-footer .btn {
+            width: 100%;
+        }
+
+        /* Estilos para la nueva sección de Servicios Digitales dentro de #services */
+        .digital-services-section {
+            margin-top: 80px; /* Espacio entre los planes y los servicios digitales */
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .digital-services-section .section-title {
+            color: var(--primary-color);
+        }
+        .digital-services-section .section-subtitle {
+            margin-bottom: 40px;
+        }
+        /* Reutiliza .photo-grid para la cuadrícula de servicios digitales */
+        .digital-services-section .photo-grid {
+            margin-top: 0; /* Ya no necesita margen superior adicional */
+        }
+
+
+        /* --- Contact Section --- */
+        #contact {
+            background-color: var(--dark-color);
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+            justify-content: center;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+        }
+
+        .contact-form, .contact-info {
+            background-color: var(--input-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            flex: 1;
+            min-width: 300px; /* Ancho mínimo para evitar que se colapsen demasiado */
+            max-width: 550px; /* Un poco más ancho */
+            border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 25px; /* Más espacio */
+            text-align: left;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px; /* Más espacio */
+            font-weight: 700;
+            color: var(--light-color);
+            font-size: 1.05rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px; /* Más padding */
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            background-color: var(--input-bg);
+            color: var(--light-color);
+            font-size: 1rem;
+            box-sizing: border-box; /* Incluir padding y borde en el ancho total */
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.25); /* Sombra más pronunciada */
+        }
+
+        .contact-form textarea {
+            resize: vertical; /* Permitir redimensionar verticalmente */
+            min-height: 150px; /* Más alto */
+        }
+
+        .contact-form button.btn-primary {
+            width: 100%;
+            padding: 18px; /* Más padding */
+            font-size: 1.2rem;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-info h3 {
+            font-family: var(--heading-font);
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px; /* Más margen */
+        }
+
+        .contact-info p {
+            margin-bottom: 20px; /* Más margen */
+            font-size: 1.15rem; /* Un poco más grande */
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-color);
+        }
+
+        .contact-info p i {
+            font-size: 1.6rem; /* Un poco más grande */
+            color: var(--primary-color);
+        }
+        .contact-info p a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+        .contact-info p a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--darker-color);
+            color: var(--light-color);
+            padding: 40px 0 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: auto; /* Empuja el footer al final de la página */
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer .logo {
+            font-size: 1.8rem;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--light-color);
+            font-size: 1.8rem;
+            transition: color var(--transition-speed), transform var(--transition-speed);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            color: var(--text-color);
+        }
+
+        /* --- Floating WhatsApp Button --- */
+        .whatsapp-float-btn {
+            position: fixed;
+            bottom: 25px; /* Ajustado */
+            left: 25px; /* Ajustado */
+            background-color: var(--whatsapp-color);
+            color: white;
+            width: 65px; /* Más grande */
+            height: 65px; /* Más grande */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem; /* Más grande */
+            box-shadow: 0 5px 15px rgba(var(--whatsapp-color-rgb), 0.4);
+            z-index: 900;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            text-decoration: none;
+        }
+
+        .whatsapp-float-btn:hover {
+            transform: scale(1.15); /* Más pronunciado */
+            box-shadow: 0 8px 20px rgba(var(--whatsapp-color-rgb), 0.6);
+        }
+
+        /* --- Selection Icon (Carrito) --- */
+        .selection-icon {
+            position: fixed;
+            bottom: 25px; /* Ajustado */
+            right: 25px; /* Ajustado */
+            background-color: var(--secondary-color);
+            color: var(--dark-color); /* Texto oscuro para contraste */
+            width: 65px; /* Más grande */
+            height: 65px; /* Más grande */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem; /* Más grande */
+            box-shadow: 0 5px 15px rgba(var(--secondary-color-rgb), 0.4);
+            z-index: 900;
+            cursor: pointer;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: none; /* Oculto por defecto, se muestra con JS si hay ítems */
+        }
+
+        .selection-icon:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(var(--secondary-color-rgb), 0.6);
+        }
+
+        .selection-count {
+            position: absolute;
+            top: -8px; /* Ajustado */
+            right: -8px; /* Ajustado */
+            background-color: var(--primary-color);
+            color: var(--dark-color); /* Texto oscuro para contraste */
+            font-size: 0.9rem; /* Más grande */
+            font-weight: 700;
+            border-radius: 50%;
+            padding: 6px 10px; /* Más padding */
+            min-width: 25px; /* Asegura un tamaño mínimo para un solo dígito */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- Lightbox --- */
+        .lightbox {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(var(--darker-color-rgb), 0.98); /* Fondo más oscuro y opaco */
+            z-index: 1500;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-speed);
+        }
+
+        .lightbox.open {
+            display: flex;
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox-content {
+            position: relative;
+            background-color: var(--input-bg);
+            padding: 30px; /* Más padding */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Más espacio */
+            transform: scale(0.9);
+            transition: transform var(--transition-speed);
+        }
+
+        .lightbox.open .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-content img, .lightbox-content video {
+            max-width: 100%;
+            max-height: 75vh; /* Altura máxima para la imagen/video */
+            border-radius: var(--border-radius);
+            object-fit: contain; /* Asegura que la imagen completa sea visible */
+            border: 1px solid rgba(var(--light-color-rgb), 0.1);
+        }
+
+        /* Estilos para el icono de archivo en el lightbox */
+        .lightbox-content .fas.fa-file-pdf,
+        .lightbox-content .fas.fa-file-powerpoint {
+            font-size: 100px; /* Tamaño grande para el icono */
+            margin-bottom: 20px;
+        }
+        .lightbox-content .file-name-display {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+
+        .lightbox-caption {
+            font-size: 1.3rem; /* Más grande */
+            color: var(--light-color);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .close-lightbox-btn, .lightbox-nav-btn { /* Clases actualizadas */
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 2.8rem; /* Más grande */
+            cursor: pointer;
+            position: absolute;
+            z-index: 1510;
+            padding: 10px;
+            transition: color var(--transition-speed), transform var(--transition-speed);
+            text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Sombra para visibilidad */
+        }
+
+        .close-lightbox-btn {
+            top: 15px;
+            right: 15px;
+        }
+
+        .lightbox-nav-btn { /* Para prev/next */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #lightbox-prev {
+            left: 15px;
+        }
+
+        #lightbox-next {
+            right: 15px;
+        }
+
+        .close-lightbox-btn:hover, .lightbox-nav-btn:hover {
+            color: var(--secondary-color);
+            transform: translateY(-50%) scale(1.1); /* Solo para prev/next */
+        }
+        .close-lightbox-btn:hover {
+            transform: scale(1.1); /* Solo para close */
+        }
+
+        .lightbox .select-button { /* Clase actualizada para el botón en lightbox */
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: 700;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .lightbox .select-button:hover:not(:disabled) {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            color: var(--light-color);
+        }
+
+        .lightbox .select-button:disabled {
+            background-color: #6c757d; /* Gris para deshabilitado */
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+        /* --- Selection Panel (Carrito) --- */
+        .selection-panel {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            right: -100%; /* Oculto a la derecha */
+            width: 85%; /* Un poco más ancho en móvil */
+            max-width: 450px; /* Más ancho en desktop */
+            height: 100%;
+            background-color: var(--darker-color);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 1200;
+            flex-direction: column;
+            transition: right var(--transition-speed);
+            padding: 25px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Permite scroll si el contenido es largo */
+        }
+
+        .selection-panel.open {
+            right: 0; /* Muestra el panel */
+        }
+
+        .selection-header { /* Renombrado */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px; /* Más margen */
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .selection-header h3 {
+            font-family: var(--heading-font);
+            font-size: 2.2rem; /* Más grande */
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .close-modal-btn { /* Clase genérica para cerrar modales/paneles */
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 2.2rem;
+            cursor: pointer;
+            transition: color var(--transition-speed);
+        }
+
+        .close-modal-btn:hover {
+            color: var(--secondary-color);
+        }
+
+        .selection-body {
+            flex-grow: 1;
+            overflow-y: auto; /* Permite scroll solo en el cuerpo de la lista */
+            margin-bottom: 20px;
+            padding-right: 10px; /* Para evitar que el scrollbar tape contenido */
+        }
+
+        .selected-items-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .selected-item-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--input-bg);
+            border-radius: var(--border-radius);
+            padding: 12px; /* Más padding */
+            margin-bottom: 12px; /* Más margen */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(var(--light-color-rgb), 0.1);
+        }
+
+        .selected-item-card img {
+            width: 90px; /* Más grande */
+            height: 90px; /* Más grande */
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        /* Estilos para iconos de archivo en el carrito */
+        .selected-item-card .fas.fa-file-pdf,
+        .selected-item-card .fas.fa-file-powerpoint,
+        .selected-item-card .fas.fa-file {
+            font-size: 60px; /* Tamaño del icono */
+            width: 90px; /* Para que ocupe el mismo espacio que la imagen */
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius);
+            background-color: var(--dark-color); /* Fondo para el icono */
+        }
+
+
+        .selected-item-info {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .selected-item-info h5 {
+            font-size: 1.2rem; /* Más grande */
+            color: var(--light-color);
+            margin: 0 0 8px;
+        }
+
+        .selected-item-info .item-price {
+            font-size: 1rem; /* Más grande */
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .selected-item-card .remove-item-btn {
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            font-size: 1.4rem; /* Más grande */
+            cursor: pointer;
+            transition: color var(--transition-speed);
+        }
+
+        .selected-item-card .remove-item-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto; /* Empuja los controles de cantidad a la derecha */
+        }
+
+        .quantity-control button {
+            background-color: var(--primary-color);
+            color: var(--dark-color); /* Texto oscuro */
+            border: none;
+            border-radius: 5px;
+            width: 35px; /* Más grande */
+            height: 35px; /* Más grande */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.3rem; /* Más grande */
+            transition: background-color var(--transition-speed);
+        }
+
+        .quantity-control button:hover {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+        }
+
+        .quantity-control .quantity-value {
+            font-size: 1.1rem; /* Más grande */
+            font-weight: 700;
+            color: var(--light-color);
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .selection-footer {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: center;
+        }
+
+        .selection-total { /* Renombrado de cart-summary #total-price */
+            font-family: var(--heading-font);
+            font-size: 2rem; /* Más grande */
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .selection-footer .btn {
+            width: 100%;
+            margin-bottom: 15px; /* Más margen */
+        }
+
+        .selection-footer .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+        }
+
+        .selection-footer .btn-primary:hover {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+        }
+
+        .empty-selection {
+            text-align: center;
+            color: var(--text-color);
+            padding: 30px;
+            font-size: 1.2rem; /* Más grande */
+        }
+
+        .empty-selection i {
+            font-size: 3.5rem; /* Más grande */
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .pack-summary-message {
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-top: 15px;
+            margin-bottom: 20px; /* Añadido margen inferior */
+            font-size: 1rem;
+            color: var(--light-color);
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* --- Payment Modal --- */
+        .payment-modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(var(--darker-color-rgb), 0.98);
+            z-index: 1300;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-speed);
+        }
+
+        .payment-modal.open {
+            display: flex;
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .payment-modal-content {
+            background-color: var(--input-bg);
+            padding: 35px; /* Más padding */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 550px; /* Más ancho */
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Más espacio */
+            transform: scale(0.9);
+            transition: transform var(--transition-speed);
+            position: relative;
+            border: 1px solid rgba(var(--secondary-color-rgb), 0.1);
+            max-height: 90vh; /* Limita la altura del modal */
+            overflow-y: auto; /* ¡Añadido para permitir el scroll! */
+        }
+
+        .payment-modal.open .payment-modal-content {
+            transform: scale(1);
+        }
+
+        .payment-modal-content h3 {
+            font-family: var(--heading-font);
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 0 0 15px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 10px;
+        }
+
+        /* Ocultar el contenedor del toggle, ya no es necesario */
+        .payment-method-toggle-container {
+            display: none; 
+        }
+
+        .payment-details {
+            background-color: var(--dark-color);
+            border-radius: var(--border-radius);
+            padding: 25px; /* Más padding */
+            margin-bottom: 25px; /* Más margen */
+            text-align: left;
+            color: var(--light-color);
+            box-shadow: inset 0 1px 5px rgba(0,0,0,0.2);
+            border: 1px solid rgba(var(--light-color-rgb), 0.1);
+        }
+
+        .payment-details h4 {
+            font-family: var(--heading-font);
+            font-size: 1.8rem; /* Más grande */
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .payment-details p {
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+        }
+
+        .payment-details p strong {
+            color: var(--primary-color);
+        }
+
+        .payment-details p:last-child {
+            margin-bottom: 0;
+        }
+
+        .payment-modal .total-amount {
+            font-family: var(--heading-font);
+            font-size: 2rem; /* Más grande */
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .payment-modal .btn-whatsapp {
+            width: 100%;
+            padding: 18px; /* Más padding */
+            font-size: 1.2rem;
+            display: block; /* Aseguramos que el botón sea un bloque para ocupar todo el ancho */
+        }
+
+        /* NEW: Payment reminder for the modal */
+        .payment-reminder {
+            font-size: 1.05rem;
+            color: var(--light-color);
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 25px;
+            background-color: rgba(var(--secondary-color-rgb), 0.1);
+            border: 1px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .payment-reminder i {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+
+        /* --- Toast Notification --- */
+        .toast {
+            visibility: hidden; /* Oculto por defecto */
+            min-width: 280px; /* Más ancho */
+            background-color: var(--darker-color);
+            color: var(--light-color);
+            text-align: center;
+            border-radius: var(--border-radius);
+            padding: 18px; /* Más padding */
+            position: fixed;
+            z-index: 1400;
+            left: 50%;
+            bottom: 35px; /* Más arriba */
+            transform: translateX(-50%);
+            box-shadow: var(--box-shadow);
+            opacity: 0;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            font-size: 1.05rem;
+        }
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .toast.success {
+            background-color: var(--whatsapp-color);
+            color: white;
+        }
+
+        .toast.error {
+            background-color: var(--accent-color);
+            color: var(--darker-color); /* Texto oscuro para error */
+        }
+
+        /* --- Download Section (para el cliente) --- */
+        .download-section {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--dark-color);
+            z-index: 1050; /* Por encima de las secciones principales, debajo de modals/lightbox */
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Permite desplazamiento dentro de esta sección */
+            padding-top: calc(var(--header-height) + 20px); /* Espacio para el header fijo + padding */
+        }
+
+        .download-section.open-full {
+            display: flex;
+        }
+
+        .download-section-content {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .download-section .section-title {
+            color: var(--secondary-color);
+        }
+
+        .download-section .section-subtitle {
+            margin-bottom: 30px;
+        }
+
+        /* NEW: Thank you message styling */
+        .thank-you-message {
+            background-color: rgba(var(--secondary-color-rgb), 0.15);
+            border: 1px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            padding: 15px 25px;
+            margin: 25px auto;
+            font-size: 1.1rem;
+            color: var(--light-color);
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* NEW: Wrapper for downloadable content */
+        #downloadable-content-wrapper {
+            display: none; /* Controlled by JS */
+        }
+
+        .download-item {
+            background-color: var(--input-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(var(--light-color-rgb), 0.1);
+        }
+
+        .download-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .download-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .download-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Estilos para iconos de archivo en la sección de descarga */
+        .download-item .file-icon-container {
+            width: 100%;
+            height: 220px; /* Misma altura que las imágenes */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--darker-color); /* Fondo oscuro para los iconos */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .download-item .file-icon-container i {
+            font-size: 80px;
+            margin-bottom: 15px;
+        }
+        .download-item .file-icon-container p {
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+
+        .download-item .photo-card-overlay {
+            background: linear-gradient(to top, rgba(var(--darker-color-rgb), 0.9), transparent);
+            min-height: 90px;
+        }
+
+        .download-item .download-btn {
+            background-color: var(--whatsapp-color);
+            color: var(--light-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .download-item .download-btn:hover {
+            background-color: #20b85a;
+            transform: translateY(-3px);
+        }
+
+        .download-section .note {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            margin-top: 20px;
+            background-color: rgba(var(--accent-color-rgb), 0.1);
+            border: 1px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 10px 15px;
+            display: inline-block;
+        }
+
+        /* --- Admin Panel --- */
+        .admin-panel {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            right: -100%; /* Oculto a la derecha */
+            width: 85%;
+            max-width: 550px; /* Más ancho */
+            height: 100%;
+            background-color: var(--darker-color);
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 1200;
+            flex-direction: column;
+            transition: right var(--transition-speed);
+            padding: 25px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Permite scroll si el contenido es largo */
+        }
+
+        .admin-panel.open {
+            right: 0; /* Muestra el panel */
+        }
+
+        .admin-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .admin-panel-header h3 {
+            font-family: var(--heading-font);
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .admin-panel-header .close-btn {
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 2.2rem;
+            cursor: pointer;
+        }
+
+        .admin-panel-content {
+            flex-grow: 1;
+            padding-bottom: 20px; /* Espacio al final del contenido scrollable */
+        }
+
+        .admin-panel .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .admin-panel label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--light-color);
+            font-size: 1rem;
+        }
+
+        .admin-panel input[type="number"],
+        .admin-panel input[type="text"],
+        .admin-panel textarea,
+        .admin-panel select {
+            width: 100%;
+            padding: 12px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            background-color: var(--input-bg);
+            color: var(--light-color);
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .admin-panel input:focus,
+        .admin-panel textarea:focus,
+        .admin-panel select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.3);
+        }
+
+        .admin-panel textarea {
+            min-height: 100px; /* Más alto */
+            resize: vertical;
+        }
+
+        .admin-panel button {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.05rem;
+            margin-top: 15px;
+        }
+
+        .admin-panel .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+        }
+
+        .admin-panel .btn-primary:hover {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+        }
+
+        .admin-panel .price-update-message {
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            border: 1px solid var(--primary-color);
+        }
+
+        .admin-panel .generated-link-section {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .admin-panel .generated-link-section h4 {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .admin-panel #generated-download-link-output {
+            background-color: var(--dark-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 12px;
+            word-break: break-all;
+            font-size: 0.95rem;
+            color: var(--light-color);
+            margin-bottom: 15px;
+            text-align: left;
+            overflow-x: auto; /* Permitir scroll horizontal si el enlace es muy largo */
+            box-shadow: inset 0 1px 5px rgba(0,0,0,0.2);
+        }
+
+        .admin-panel .link-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .admin-panel .link-actions button {
+            flex: 1;
+            max-width: 180px; /* Más ancho */
+            padding: 12px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .admin-panel .link-actions .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+        }
+
+        .admin-panel .link-actions .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+            color: white;
+        }
+
+        .admin-panel .link-actions .btn-whatsapp:hover {
+            background-color: #20b85a;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .header .container {
+                padding: 0 15px;
+            }
+
+            .nav {
+                display: none; /* Ocultar navegación principal en móvil */
+            }
+
+            .menu-toggle {
+                display: block; /* Mostrar botón de menú en móvil */
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.05rem;
+            }
+
+            .event-card-info h3 {
+                font-size: 1.8rem;
+            }
+
+            .photo-grid, .featured-events-grid, .hiring-grid, .products .photo-grid,
+            #download-links-container.photo-grid, .digital-services-section .photo-grid { /* Aplicar también a la sección de descarga y nuevos servicios digitales */
+                grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+                padding: 0 15px; /* Reduce padding para móvil */
+            }
+
+            .contact-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .contact-form, .contact-info {
+                max-width: 100%;
+                flex: 1 1 auto;
+                padding: 30px;
+            }
+
+            .contact-info h3 {
+                font-size: 1.8rem;
+            }
+
+            .selection-panel, .admin-panel {
+                width: 100%; /* Ocupa todo el ancho en móviles */
+                max-width: 100%;
+            }
+
+            .lightbox-content {
+                padding: 20px;
+            }
+
+            .close-lightbox-btn, .lightbox-nav-btn {
+                font-size: 2.5rem;
+                padding: 8px;
+            }
+
+            #lightbox-prev {
+                left: 8px;
+            }
+
+            #lightbox-next {
+                right: 8px;
+            }
+
+            .whatsapp-float-btn, .selection-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 2rem;
+                bottom: 20px;
+                left: 20px;
+            }
+            .selection-icon {
+                right: 20px;
+                left: auto; /* Asegura que se mantenga a la derecha en móvil */
+            }
+
+            .selection-count {
+                font-size: 0.8rem;
+                padding: 5px 8px;
+            }
+
+            .payment-modal-content {
+                padding: 25px;
+            }
+
+            .payment-modal-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .admin-panel-content h2 {
+                font-size: 2rem;
+            }
+            .admin-panel-content h4 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .hero-content {
+                padding: 20px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .plan-card h3 {
+                font-size: 1.8rem;
+            }
+
+            .contact-form, .contact-info {
+                padding: 25px;
+            }
+
+            .contact-info h3 {
+                font-size: 1.8rem;
+            }
+
+            .payment-modal-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .admin-panel-content h2 {
+                font-size: 1.8rem;
+            }
+            .admin-panel-content h4 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main-content">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="assets/favicon.png" alt="Recuerdos de Papel Logo" class="logo-img">
+                    Recuerdos de Papel
+                </a>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#about">Quiénes Somos</a></li>
+                        <li><a href="#offers">Promociones Destacadas</a></li>
+                        <li><a href="#products">Tienda</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="menu-toggle" aria-label="Abrir menú">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MOBILE MENU -->
+        <div class="mobile-menu">
+            <button class="close-menu-btn" aria-label="Cerrar menú">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-list">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#about">Quiénes Somos</a></li>
+                <li><a href="#offers">Promociones Destacadas</a></li>
+                <li><a href="#products">Tienda</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="hero" style="background-image: url('assets/hero-bg.jfif');">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>Captura tus Momentos, Crea tus Recuerdos</h1>
+                <p>Diseños únicos y personalizados para cada etapa de tu vida. Desde eventos especiales hasta regalos que perduran.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">Explora la Tienda</a>
+                    <a href="#contact" class="btn btn-secondary">Contáctanos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Quiénes Somos</h2>
+                <p class="section-subtitle">En Recuerdos de Papel, transformamos tus ideas en creaciones únicas y memorables.</p>
+                <div class="about-content">
+                    <h3>Nuestra Pasión por el Detalle</h3>
+                    <p>Somos un equipo de creativos apasionados por la papelería personalizada y los detalles que hacen la diferencia. Desde la concepción de una idea hasta el producto final, nos dedicamos a ofrecer soluciones únicas que reflejen la esencia de cada cliente.</p>
+                    <p>Creemos que cada momento especial merece un recuerdo tangible, algo que puedas guardar y revivir. Por eso, nos especializamos en diseños que no solo son estéticamente atractivos, sino que también cuentan una historia.</p>
+                    <p>Nuestros Valores</p>
+                    <p>La **creatividad** es el motor de todo lo que hacemos. La **calidad** es nuestra promesa, utilizando solo los mejores materiales. La **personalización** es nuestro sello, adaptándonos a tus necesidades. Y la **satisfacción del cliente** es nuestra mayor recompensa.</p>
+                    <p>¡Permítenos ayudarte a crear esos recuerdos que durarán toda la vida!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROMOTIONS SECTION (Nuestras Promociones Destacadas) -->
+        <section id="offers" class="section">
+            <div class="container">
+                <h2 class="section-title">Nuestras Promociones Destacadas</h2>
+                <p class="section-subtitle">Descubre las creaciones más populares y las ofertas especiales que tenemos para ti.</p>
+                <!-- AHORA ESTA SECCIÓN MOSTRARÁ DIRECTAMENTE LAS FOTOS DE "OFERTAS-ESPECIALES" Y "Promociones" -->
+                <div id="featured-events-container" class="featured-events-grid photo-grid">
+                    <!-- Las fotos/promociones de OFERTAS-ESPECIALES y Promociones se cargarán directamente aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTS SECTION (TIENDA) -->
+        <section id="products" class="section">
+            <div class="container">
+                <h2 class="section-title">Nuestros Productos Personalizados</h2>
+                <p class="section-subtitle">Explora nuestra colección de productos únicos, perfectos para cualquier ocasión.</p>
+                <div id="featuredProductsGrid" class="products photo-grid">
+                    <!-- Las tarjetas de productos personalizados se cargarán aquí -->
+                </div>
+                <p class="note-delivery">
+                    <i class="fas fa-info-circle"></i> Nota: Todos los productos personalizados se realizan a pedido. El tiempo de producción y entrega se coordinará una vez confirmado el pedido.
+                </p>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Ofrecemos una variedad de servicios para hacer tus ideas realidad, desde diseño hasta producción.</p>
+                <div class="hiring-grid">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <i class="fas fa-palette icon"></i>
+                            <h3>Diseño Gráfico Personalizado</h3>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check-circle"></i> Invitaciones Digitales</li>
+                            <li><i class="fas fa-check-circle"></i> Logos y Branding</li>
+                            <li><i class="fas fa-check-circle"></i> Tarjetas Personales</li>
+                            <li><i class="fas fa-check-circle"></i> Ilustraciones Únicas</li>
+                            <li><i class="fas fa-check-circle"></i> Edición de Fotos</li>
+                        </ul>
+                        <div class="plan-footer">
+                            <a href="#contact" class="btn btn-primary">Solicitar Presupuesto</a>
+                        </div>
+                    </div>
+                    <div class="plan-card highlight">
+                        <div class="plan-header">
+                            <i class="fas fa-print icon"></i>
+                            <h3>Impresión y Acabados</h3>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check-circle"></i> Impresión Digital de Alta Calidad</li>
+                            <li><i class="fas fa-check-circle"></i> Acabados Especiales (laminado, hot stamping)</li>
+                            <li><i class="fas fa-check-circle"></i> Corte Especializado (troquelado)</li>
+                            <li><i class="fas fa-check-circle"></i> Encuadernación Artesanal</li>
+                            <li><i class="fas fa-check-circle"></i> Producción de Stickers y Etiquetas</li>
+                        </ul>
+                        <div class="plan-footer">
+                            <a href="#contact" class="btn btn-primary">Cotizar Proyecto</a>
+                        </div>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <i class="fas fa-gift icon"></i>
+                            <h3>Regalos Corporativos y Eventos</h3>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check-circle"></i> Kits de Bienvenida Personalizados</li>
+                            <li><i class="fas fa-check-circle"></i> Merchandising con Logo</li>
+                            <li><i class="fas fa-check-circle"></i> Souvenirs para Eventos</li>
+                            <li><i class="fas fa-check-circle"></i> Diseño y Producción de Empaques</li>
+                            <li><i class="fas fa-check-circle"></i> Asesoramiento en Concepto</li>
+                        </ul>
+                        <div class="plan-footer">
+                            <a href="#contact" class="btn btn-primary">Más Información</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NUEVA SECCIÓN PARA SERVICIOS DIGITALES (PDFs/PPTs) -->
+                <div class="digital-services-section">
+                    <h3 class="section-title">Nuestros Archivos Digitales</h3>
+                    <p class="section-subtitle">Descarga guías, plantillas y presentaciones para tus proyectos.</p>
+                    <div id="digital-services-grid" class="photo-grid">
+                        <!-- Los PDFs y PowerPoints se cargarán aquí -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Contáctanos</h2>
+                <p class="section-subtitle">¿Listo para crear algo increíble? Envíanos un mensaje o encuéntranos.</p>
+                <div class="contact-content">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje:</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </form>
+                    <div class="contact-info">
+                        <h3>Información de Contacto</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Córdoba, Argentina</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:Recuerdosdepapelimpresiones@gmail.com">Recuerdosdepapelimpresiones@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+5493518187831">+54 9 351 818-7831</a></p>
+                        <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/recuerdosdepapel05?igsh=MWJzbmZrNTR2N3l3" target="_blank">@recuerdosdepapel05</a></p>
+                        <!-- NUEVO: Enlace de Facebook -->
+                        <p><i class="fab fa-facebook-f"></i> <a href="https://www.facebook.com/profile.php?id=100077301590246" target="_blank">Recuerdos de Papel</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="assets/favicon.png" alt="Recuerdos de Papel Logo" class="logo-img">
+                    Recuerdos de Papel
+                </a>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/profile.php?id=100077301590246" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/recuerdosdepapel05?igsh=MWJzbmZrNTR2N3l3" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://wa.me/5493518187831" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                </ul>
+                <p>&copy; 2024 Recuerdos de Papel. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="whatsapp-float-btn" id="whatsapp-float-btn" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Selection Icon (Carrito) -->
+    <div class="selection-icon" id="selection-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="selection-count" id="selection-count">0</span>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="close-lightbox-btn" id="lightbox-close" aria-label="Cerrar imagen"><i class="fas fa-times"></i></button>
+            <button class="lightbox-nav-btn" id="lightbox-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+            <img src="" alt="Imagen en Lightbox" id="lightbox-image">
+            <video src="" controls muted loop playsinline preload="metadata" id="lightbox-video"></video>
+            <!-- Elementos para iconos de archivo (PDF/PPT) en Lightbox -->
+            <!-- Estos se crearán dinámicamente en script.js, pero se incluyen aquí como referencia conceptual -->
+            <!-- <i class="fas fa-file-pdf" id="lightbox-file-icon"></i> -->
+            <!-- <p class="file-name-display" id="lightbox-file-name"></p> -->
+
+            <button class="lightbox-nav-btn" id="lightbox-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
+            <span class="lightbox-caption" id="lightbox-caption"></span>
+            <button class="select-button" id="addToSelectionBtn">Seleccionar para Comprar</button>
+        </div>
+    </div>
+
+    <!-- SELECTION PANEL (CARRITO) -->
+    <div class="selection-panel" id="selection-panel">
+        <div class="selection-header">
+            <h3>Tu Selección</h3>
+            <button class="close-modal-btn" id="close-selection-panel-btn" aria-label="Cerrar carrito"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="selection-body">
+            <ul class="selected-items-list" id="selected-items-list">
+                <!-- Los ítems seleccionados se cargarán aquí -->
+            </ul>
+            <div class="pack-summary-message" id="pack-summary-message" style="display: none;">
+                <!-- Mensaje de resumen de paquete de fotos -->
+            </div>
+        </div>
+        <div class="selection-footer">
+            <p class="selection-total" id="total-price">Total Estimado: $0</p>
+            <button class="btn btn-primary" id="whatsapp-btn"><i class="fab fa-whatsapp"></i> Finalizar Pedido por WhatsApp</button>
+            <button class="btn btn-secondary" id="clear-selection-btn"><i class="fas fa-trash-alt"></i> Vaciar Selección</button>
+            <!-- Botones ocultos para generar enlace de descarga (solo para admin) -->
+            <button class="btn btn-primary" id="download-link-generator-btn" style="display: none;"><i class="fas fa-link"></i> Generar Enlace de Descarga</button>
+            <button class="btn btn-whatsapp" id="whatsapp-download-link-btn" style="display: none;"><i class="fab fa-whatsapp"></i> Enviar Enlace por WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- PAYMENT MODAL -->
+    <div class="payment-modal" id="payment-modal">
+        <div class="payment-modal-content">
+            <h3>Confirmar Pago</h3>
+            <button class="close-modal-btn" id="close-payment-modal-btn" aria-label="Cerrar pago"><i class="fas fa-times"></i></button>
+            
+            <!-- El toggle de método de pago se ha eliminado -->
+
+            <div id="mercado-pago-details" style="display: block;"> <!-- Siempre visible ahora -->
+                <h4>Paga con Mercado Pago</h4>
+                <div class="payment-details">
+                    <p><strong>Alias de Mercado Pago:</strong> <span id="mp-alias-display"></span></p>
+                    <p><strong>Titular:</strong> Britos Ayelen</p> <!-- Nombre del titular actualizado -->
+                </div>
+                <p><strong>Monto Total:</strong> <span id="payment-total-amount"></span></p>
+            </div>
+
+            <!-- La sección de transferencia bancaria se ha eliminado -->
+            
+            <!-- Recordatorio para adjuntar comprobante -->
+            <p class="payment-reminder">
+                <i class="fas fa-paperclip"></i> Por favor, recuerda que al hacer clic en "Ya Pagué / Coordinar", se abrirá una conversación con nosotros. Allí podrás **adjuntar el comprobante de pago** y enviar el mensaje pre-escrito. ¡Gracias! 😊
+            </p>
+
+            <button class="btn btn-whatsapp" id="whatsapp-payment-btn"><i class="fab fa-whatsapp"></i> Ya Pagué / Coordinar</button>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toastNotification" class="toast"></div>
+
+    <!-- DOWNLOAD SECTION -->
+    <section id="download-section" class="download-section" style="display: none;">
+        <div class="container">
+            <div class="download-section-content">
+                <h2 class="section-title">Tus Servicios Digitales Listos para Descargar</h2>
+                <p class="section-subtitle" id="downloadSubtitle">Haz clic en cada elemento para descargarlo individualmente, o usa el botón para descargarlos todos de una vez.</p>
+                <p class="thank-you-message" id="thankYouMessageDisplay" style="display: none;">¡Tu pedido está listo! Gracias por confiar en Recuerdos de Papel para tus momentos especiales. ¡Esperamos que los disfrutes al máximo!</p>
+                
+                <!-- NEW: Wrapper for downloadable content -->
+                <div id="downloadable-content-wrapper">
+                    <button id="download-all-btn" class="btn btn-primary" style="margin-bottom: 20px;">
+                        <i class="fas fa-download"></i> Descargar Todos los Servicios Digitales
+                    </button>
+                    <p class="note">Nota: La descarga de múltiples archivos puede requerir confirmación en tu navegador.</p>
+                    <div id="download-links-container" class="photo-grid">
+                        <!-- Los servicios digitales para descargar se cargarán aquí -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    <!-- Botón para abrir el panel de administración (opcional, podrías tenerlo oculto y abrirlo por URL) -->
+    <button id="open-admin-panel-btn" style="position: fixed; bottom: 80px; right: 20px; z-index: 999; background-color: #f0ad4e; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; display: none;">Admin</button>
+
+    <!-- ADMIN PANEL -->
+    <div class="admin-panel" id="admin-panel">
+        <div class="admin-panel-header">
+            <h3>Panel de Administración</h3>
+            <button class="close-modal-btn" id="close-admin-panel-btn" aria-label="Cerrar panel"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="admin-panel-content">
+            <!-- Sección de Precios de Promociones Destacadas -->
+            <section class="admin-section">
+                <h4 class="section-title">Precios de Promociones Destacadas</h4>
+                <div class="form-group">
+                    <label for="featured-promotion-select">Seleccionar Promoción Destacada:</label>
+                    <select id="featured-promotion-select">
+                        <!-- Opciones de promociones destacadas se cargarán aquí con JS -->
+                    </select>
+                </div>
+                <div id="selected-featured-promotion-price-input-container">
+                    <!-- Input de precio de la promoción destacada seleccionada se cargará aquí con JS -->
+                    <p class="event-placeholder">Selecciona una promoción destacada para modificar su precio.</p>
+                </div>
+                <button class="btn btn-primary" id="save-featured-promotion-price-btn">Guardar Precio de Promoción Destacada</button>
+            </section>
+
+            <!-- Sección de Precios de Productos de Tienda -->
+            <section class="admin-section" style="margin-top: 40px;">
+                <h4 class="section-title">Precios de Productos de Tienda</h4>
+                <div class="form-group">
+                    <label for="store-product-select">Seleccionar Producto de Tienda:</label>
+                    <select id="store-product-select">
+                        <!-- Opciones de productos de tienda se cargarán aquí con JS -->
+                    </select>
+                </div>
+                <div id="selected-store-product-price-input-container">
+                    <!-- Input de precio del producto de tienda seleccionado se cargará aquí con JS -->
+                    <p class="event-placeholder">Selecciona un producto de tienda para modificar su precio.</p>
+                </div>
+                <button class="btn btn-primary" id="save-store-product-prices-btn">Guardar Precio de Producto de Tienda</button>
+            </section>
+
+            <!-- Sección de Precios de Servicios Digitales -->
+            <section class="admin-section" style="margin-top: 40px;">
+                <h4 class="section-title">Precios de Servicios Digitales</h4>
+                <div class="form-group">
+                    <label for="digital-service-select">Seleccionar Servicio Digital:</label>
+                    <select id="digital-service-select">
+                        <!-- Opciones de servicios digitales se cargarán aquí con JS -->
+                    </select>
+                </div>
+                <div id="selected-digital-service-price-input-container">
+                    <!-- Input de precio del servicio digital seleccionado se cargará aquí con JS -->
+                    <p class="event-placeholder">Selecciona un servicio digital para modificar su precio.</p>
+                </div>
+                <button class="btn btn-primary" id="save-digital-service-price-btn">Guardar Precio de Servicio Digital</button>
+            </section>
+
+            <p class="price-update-message" id="price-update-message"></p>
+
+            <!-- Sección de Generación de Enlace de Descarga por IDs -->
+            <div class="generated-link-section">
+                <h4 class="section-title" id="admin-generate-link-header">Generar Enlace de Descarga por IDs</h4>
+                <p class="section-subtitle">Introduce los IDs de las promociones digitales (separados por comas) para generar un enlace de descarga para el cliente.</p>
+                <div class="form-group">
+                    <label for="admin-photo-ids-input">IDs de Promociones Digitales (separados por comas):</label>
+                    <textarea id="admin-photo-ids-input" rows="4" placeholder="ej: id1, id2, id3"></textarea>
+                </div>
+                <button class="btn btn-primary" id="generate-admin-download-link-btn">Generar Enlace</button>
+                <div id="generated-download-link-output" style="display: none;"></div>
+                <div class="link-actions">
+                    <button class="btn btn-primary" id="copy-admin-download-link-btn" style="display: none;"><i class="fas fa-copy"></i> Copiar Enlace</button>
+                    <button class="btn btn-whatsapp" id="whatsapp-admin-download-link-btn" style="display: none;"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

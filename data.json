@@ -1,0 +1,392 @@
+[
+  {
+    "name": "OFERTAS-ESPECIALES",
+    "path": "OFERTAS-ESPECIALES",
+    "isProductCategory": false,
+    "content": []
+  },
+  {
+    "name": "Promociones",
+    "path": "Promociones",
+    "isProductCategory": true,
+    "products": [
+      {
+        "id": "promo_bolsa_001",
+        "name": "Bolsa de Friselina",
+        "price": 1200,
+        "description": "Promoción de bolsa de friselina personalizada con un lápiz.",
+        "images": [
+          {
+            "id": "136yzu1",
+            "name": "bolsadefriselina",
+            "type": "image",
+            "src": "Promociones/bolsadefriselina.jfif"
+          }
+        ],
+        "path": "Promociones/bolsas"
+      },
+      {
+        "id": "promo_mate_001",
+        "name": "Mate Sublimado",
+        "price": 2500,
+        "description": "Promoción de mate de cerámica sublimado con bombilla.",
+        "images": [
+          {
+            "id": "13gyipv",
+            "name": "matesdeceramicasublimados",
+            "type": "image",
+            "src": "Promociones/matesdeceramicasublimados.jfif"
+          }
+        ],
+        "path": "Promociones/mates"
+      }
+    ]
+  },
+  {
+    "name": "Servicios-Digitales",
+    "path": "Servicios-Digitales",
+    "isProductCategory": false,
+    "content": [
+      {
+        "id": "npok6cp",
+        "name": "sony",
+        "type": "pdf",
+        "src": "Servicios-Digitales/pdf/sony.pdf",
+        "eventName": "Servicios-Digitales",
+        "price": 0,
+        "description": "Descripción detallada de sony."
+      },
+      {
+        "id": "q6p6q5j",
+        "name": "Special Notebook for Business XL by Slidesgo",
+        "type": "powerpoint",
+        "src": "Servicios-Digitales/powerpoint/Special Notebook for Business XL by Slidesgo.pptx",
+        "eventName": "Servicios-Digitales",
+        "price": 0,
+        "description": "Descripción detallada de Special Notebook for Business XL by Slidesgo."
+      }
+    ]
+  },
+  {
+    "name": "tienda-productos",
+    "path": "tienda-productos",
+    "isProductCategory": true,
+    "products": [
+      {
+        "id": "qgq8yu4",
+        "name": "bolsas de friselina",
+        "price": 0,
+        "description": "Descripción detallada de bolsas de friselina.",
+        "images": [
+          {
+            "id": "s7nodkp",
+            "name": "bolsadefriselina",
+            "type": "image",
+            "src": "tienda-productos/bolsas-de-friselina/bolsadefriselina.jfif"
+          }
+        ],
+        "path": "tienda-productos/bolsas-de-friselina"
+      },
+      {
+        "id": "4jm180q",
+        "name": "cantimploras",
+        "price": 0,
+        "description": "Descripción detallada de cantimploras.",
+        "images": [
+          {
+            "id": "9w40oan",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/cantimploras/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/cantimploras"
+      },
+      {
+        "id": "s738q04",
+        "name": "cantimploras",
+        "price": 0,
+        "description": "Descripción detallada de cantimploras.",
+        "images": [
+          {
+            "id": "hgiwx8i",
+            "name": "2",
+            "type": "image",
+            "src": "tienda-productos/cantimploras/2.jfif"
+          }
+        ],
+        "path": "tienda-productos/cantimploras"
+      },
+      {
+        "id": "poije3e",
+        "name": "destapadores",
+        "price": 0,
+        "description": "Descripción detallada de destapadores.",
+        "images": [
+          {
+            "id": "8e96038",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/destapadores/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/destapadores"
+      },
+      {
+        "id": "bn8tzx7",
+        "name": "juego de mate",
+        "price": 0,
+        "description": "Descripción detallada de juego de mate.",
+        "images": [
+          {
+            "id": "42qdkpi",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/juego-de-mate/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/juego-de-mate"
+      },
+      {
+        "id": "o9ri6kw",
+        "name": "llaveros",
+        "price": 0,
+        "description": "Descripción detallada de llaveros.",
+        "images": [
+          {
+            "id": "x8hjt83",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/llaveros/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/llaveros"
+      },
+      {
+        "id": "5ebcpsl",
+        "name": "mates",
+        "price": 0,
+        "description": "Descripción detallada de mates.",
+        "images": [
+          {
+            "id": "f135ukg",
+            "name": "ceramicos",
+            "type": "image",
+            "src": "tienda-productos/mates/ceramicos.jfif"
+          }
+        ],
+        "path": "tienda-productos/mates"
+      },
+      {
+        "id": "eg99phs",
+        "name": "mates",
+        "price": 0,
+        "description": "Descripción detallada de mates.",
+        "images": [
+          {
+            "id": "uj0s8kc",
+            "name": "polimero",
+            "type": "image",
+            "src": "tienda-productos/mates/polimero.jfif"
+          }
+        ],
+        "path": "tienda-productos/mates"
+      },
+      {
+        "id": "j833vvm",
+        "name": "mochilas",
+        "price": 0,
+        "description": "Descripción detallada de mochilas.",
+        "images": [
+          {
+            "id": "w91721c",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/mochilas/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/mochilas"
+      },
+      {
+        "id": "d0hog14",
+        "name": "Mouse Pad Sublimado",
+        "price": 0,
+        "description": "Descripción detallada de Mouse Pad Sublimado.",
+        "images": [
+          {
+            "id": "4k11aa5",
+            "name": "pad",
+            "type": "image",
+            "src": "tienda-productos/Mouse-Pad-Sublimado/pad.jfif"
+          }
+        ],
+        "path": "tienda-productos/Mouse-Pad-Sublimado"
+      },
+      {
+        "id": "uqdnyfl",
+        "name": "Mouse Pad Sublimado",
+        "price": 0,
+        "description": "Descripción detallada de Mouse Pad Sublimado.",
+        "images": [
+          {
+            "id": "h5eyzvs",
+            "name": "pad1",
+            "type": "image",
+            "src": "tienda-productos/Mouse-Pad-Sublimado/pad1.jfif"
+          }
+        ],
+        "path": "tienda-productos/Mouse-Pad-Sublimado"
+      },
+      {
+        "id": "v18izvq",
+        "name": "Mouse Pad Sublimado",
+        "price": 0,
+        "description": "Descripción detallada de Mouse Pad Sublimado.",
+        "images": [
+          {
+            "id": "6a18ib2",
+            "name": "pad2",
+            "type": "image",
+            "src": "tienda-productos/Mouse-Pad-Sublimado/pad2.jfif"
+          }
+        ],
+        "path": "tienda-productos/Mouse-Pad-Sublimado"
+      },
+      {
+        "id": "fo4ujaz",
+        "name": "pines",
+        "price": 0,
+        "description": "Descripción detallada de pines.",
+        "images": [
+          {
+            "id": "03s2s06",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/pines/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/pines"
+      },
+      {
+        "id": "sf2re14",
+        "name": "platos cubiertos",
+        "price": 0,
+        "description": "Descripción detallada de platos cubiertos.",
+        "images": [
+          {
+            "id": "nwi0hu2",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/platos-cubiertos/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/platos-cubiertos"
+      },
+      {
+        "id": "rjdw28d",
+        "name": "posa vasos",
+        "price": 0,
+        "description": "Descripción detallada de posa vasos.",
+        "images": [
+          {
+            "id": "a4sk976",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/posa-vasos/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/posa-vasos"
+      },
+      {
+        "id": "0inos2a",
+        "name": "puas",
+        "price": 0,
+        "description": "Descripción detallada de puas.",
+        "images": [
+          {
+            "id": "xo055dk",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/puas/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/puas"
+      },
+      {
+        "id": "5q4r9gf",
+        "name": "remeras blancas",
+        "price": 0,
+        "description": "Descripción detallada de remeras blancas.",
+        "images": [
+          {
+            "id": "dhf3o4u",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/remeras-blancas/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/remeras-blancas"
+      },
+      {
+        "id": "u8zmxkt",
+        "name": "remeras negras estampadas",
+        "price": 0,
+        "description": "Descripción detallada de remeras negras estampadas.",
+        "images": [
+          {
+            "id": "hgdxisz",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/remeras-negras-estampadas/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/remeras-negras-estampadas"
+      },
+      {
+        "id": "u7vqhhf",
+        "name": "stickers sublimables comunes",
+        "price": 0,
+        "description": "Descripción detallada de stickers sublimables comunes.",
+        "images": [
+          {
+            "id": "err68fc",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/stickers-sublimables-comunes/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/stickers-sublimables-comunes"
+      },
+      {
+        "id": "1gtvrjg",
+        "name": "tazas",
+        "price": 0,
+        "description": "Descripción detallada de tazas.",
+        "images": [
+          {
+            "id": "ekanzdi",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/tazas/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/tazas"
+      },
+      {
+        "id": "f3c7tig",
+        "name": "vasos termicos",
+        "price": 0,
+        "description": "Descripción detallada de vasos termicos.",
+        "images": [
+          {
+            "id": "4kn23e7",
+            "name": "1",
+            "type": "image",
+            "src": "tienda-productos/vasos-termicos/1.jfif"
+          }
+        ],
+        "path": "tienda-productos/vasos-termicos"
+      }
+    ]
+  }
+]
