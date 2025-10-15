@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Asistente Reparaciones</string>
+    <string name="acc_service_description">Automatiza envío de mensajes en WhatsApp</string>
+</resources>
