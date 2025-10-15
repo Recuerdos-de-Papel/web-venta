@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/acc_service_description"
+    android:packageNames="com.whatsapp"
+    android:accessibilityEventTypes="typeViewClicked|typeViewFocused|typeWindowContentChanged|typeViewTextChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:notificationTimeout="50"
+    android:canRetrieveWindowContent="true"
+    android:settingsActivity="com.tallerreparaciones.asistente.accessibility.AccessibilitySettingsActivity"
+    android:canRequestFilterKeyEvents="true"
+    android:canPerformGestures="true"
+    android:accessibilityFlags="flagReportViewIds|flagIncludeNotImportantViews|flagRequestEnhancedWebAccessibility|flagRequestFilterKeyEvents" />
